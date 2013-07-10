@@ -18,7 +18,7 @@
 
 
 int
-ImagingXbmEncode(Imaging im, ImagingCodecState state, UINT8* buf, int bytes)
+ImagingXbmEncode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
 {
     const char *hex = "0123456789abcdef";
 

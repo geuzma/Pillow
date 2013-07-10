@@ -22,7 +22,7 @@ enum { INIT, FETCH, ENCODE };
 #define LAST ystep
 
 int
-ImagingPcxEncode(Imaging im, ImagingCodecState state, UINT8* buf, int bytes)
+ImagingPcxEncode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
 {
     UINT8* ptr;
     int this;

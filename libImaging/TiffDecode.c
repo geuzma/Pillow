@@ -163,7 +163,7 @@ int ImagingLibTiffInit(ImagingCodecState state, int compression, int fp) {
     return 1;
 }
 
-int ImagingLibTiffDecode(Imaging im, ImagingCodecState state, UINT8* buffer, int bytes) {
+int ImagingLibTiffDecode(Imaging im, ImagingCodecState state, UINT8* buffer, size_t bytes) {
 	TIFFSTATE *clientstate = (TIFFSTATE *)state->context;
 	char *filename = "tempfile.tif";
 	char *mode = "r";
@@ -333,7 +333,7 @@ int ImagingLibTiffSetField(ImagingCodecState state, ttag_t tag, ...){
 }
 
 
-int ImagingLibTiffEncode(Imaging im, ImagingCodecState state, UINT8* buffer, int bytes) {
+int ImagingLibTiffEncode(Imaging im, ImagingCodecState state, UINT8* buffer, size_t bytes) {
 	/* One shot encoder. Encode everything to the tiff in the clientstate.
 	   If we're running off of a FD, then run once, we're good, everything
 	   ends up in the file, we close and we're done.

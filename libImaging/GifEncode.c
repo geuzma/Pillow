@@ -134,7 +134,7 @@ label:\
 }
 
 int
-ImagingGifEncode(Imaging im, ImagingCodecState state, UINT8* buf, int bytes)
+ImagingGifEncode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
 {
     UINT8* ptr;
     int this;

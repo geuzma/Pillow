@@ -82,7 +82,7 @@ error(j_common_ptr cinfo)
 /* -------------------------------------------------------------------- */
 
 int
-ImagingJpegEncode(Imaging im, ImagingCodecState state, UINT8* buf, int bytes)
+ImagingJpegEncode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
 {
     JPEGENCODERSTATE* context = (JPEGENCODERSTATE*) state->context;
     int ok;

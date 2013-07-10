@@ -22,7 +22,7 @@
  * See the README file for information on usage and redistribution.
  */
 
-
+#define PY_SSIZE_T_CLEAN
 #include "Python.h"
 
 #include "Imaging.h"
@@ -178,7 +178,7 @@ static PyObject*
 _frombytes(ImagingDisplayObject* display, PyObject* args)
 {
     char* ptr;
-    int bytes;
+    Py_ssize_t bytes;
 
 #if PY_VERSION_HEX >= 0x03000000
     if (!PyArg_ParseTuple(args, "y#:frombytes", &ptr, &bytes))

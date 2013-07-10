@@ -317,7 +317,7 @@ ImagingNewBlock(const char *mode, int xsize, int ysize)
 {
     Imaging im;
     int y, i;
-    int bytes;
+    size_t bytes;
 
     im = ImagingNewPrologue(mode, xsize, ysize);
     if (!im)
@@ -358,7 +358,7 @@ ImagingNewBlock(const char *mode, int xsize, int ysize)
 Imaging
 ImagingNew(const char* mode, int xsize, int ysize)
 {
-    int bytes;
+    size_t bytes;
     Imaging im;
 
     if (strlen(mode) == 1) {

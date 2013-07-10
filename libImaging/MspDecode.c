@@ -18,7 +18,7 @@
 
 
 int
-ImagingMspDecode(Imaging im, ImagingCodecState state, UINT8* buf, int bytes)
+ImagingMspDecode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
 {
     int n;
     UINT8* ptr;

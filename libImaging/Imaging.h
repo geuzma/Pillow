@@ -395,72 +395,72 @@ extern Imaging ImagingOpenPPM(const char* filename);
 extern int ImagingSavePPM(Imaging im, const char* filename);
 
 /* Utility functions */
-extern UINT32 ImagingCRC32(UINT32 crc, UINT8* buffer, int bytes);
+extern UINT32 ImagingCRC32(UINT32 crc, UINT8* buffer, size_t bytes);
 
 /* Codecs */
 typedef struct ImagingCodecStateInstance *ImagingCodecState;
 typedef int (*ImagingCodec)(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 
 extern int ImagingBitDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingEpsEncode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingFliDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingGifDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingGifEncode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingHexDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 #ifdef	HAVE_LIBJPEG
 extern int ImagingJpegDecode(Imaging im, ImagingCodecState state,
-			     UINT8* buffer, int bytes);
+			     UINT8* buffer, size_t bytes);
 extern int ImagingJpegDecodeCleanup(ImagingCodecState state);
 
 extern int ImagingJpegEncode(Imaging im, ImagingCodecState state,
-			     UINT8* buffer, int bytes);
+			     UINT8* buffer, size_t bytes);
 #endif
 extern int ImagingLzwDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 #ifdef	HAVE_LIBTIFF
 extern int ImagingLibTiffDecode(Imaging im, ImagingCodecState state,
-				UINT8* buffer, int bytes);
+				UINT8* buffer, size_t bytes);
 extern int ImagingLibTiffEncode(Imaging im, ImagingCodecState state,
-				UINT8* buffer, int bytes);
+				UINT8* buffer, size_t bytes);
 #endif
 #ifdef	HAVE_LIBMPEG
 extern int ImagingMpegDecode(Imaging im, ImagingCodecState state,
-			     UINT8* buffer, int bytes);
+			     UINT8* buffer, size_t bytes);
 #endif
 extern int ImagingMspDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingPackbitsDecode(Imaging im, ImagingCodecState state,
-				 UINT8* buffer, int bytes);
+				 UINT8* buffer, size_t bytes);
 extern int ImagingPcdDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingPcxDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingPcxEncode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingRawDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingRawEncode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingSunRleDecode(Imaging im, ImagingCodecState state,
-			       UINT8* buffer, int bytes);
+			       UINT8* buffer, size_t bytes);
 extern int ImagingTgaRleDecode(Imaging im, ImagingCodecState state,
-			       UINT8* buffer, int bytes);
+			       UINT8* buffer, size_t bytes);
 extern int ImagingXbmDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingXbmEncode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 #ifdef	HAVE_LIBZ
 extern int ImagingZipDecode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 extern int ImagingZipEncode(Imaging im, ImagingCodecState state,
-			    UINT8* buffer, int bytes);
+			    UINT8* buffer, size_t bytes);
 #endif
 
 typedef void (*ImagingShuffler)(UINT8* out, const UINT8* in, int pixels);
@@ -490,7 +490,8 @@ struct ImagingCodecStateInstance {
     int ystep;
     int xsize, ysize, xoff, yoff;
     ImagingShuffler shuffle;
-    int bits, bytes;
+    int bits;
+    size_t bytes;
     UINT8 *buffer;
     void *context;
 };

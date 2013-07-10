@@ -37,7 +37,7 @@
 
 
 int
-ImagingLzwDecode(Imaging im, ImagingCodecState state, UINT8* buf, int bytes)
+ImagingLzwDecode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
 {
     UINT8* p;
     int c, i;

@@ -73,6 +73,7 @@
 
 #define PILLOW_VERSION "2.1.0"
 
+#define PY_SSIZE_T_CLEAN
 #include "Python.h"
 
 #ifdef HAVE_LIBZ
@@ -2843,7 +2844,7 @@ static PyObject*
 _crc32(PyObject* self, PyObject* args)
 {
     unsigned char* buffer;
-    int bytes;
+    Py_ssize_t bytes;
     int hi, lo;
     UINT32 crc;
 

@@ -17,7 +17,7 @@
 #include "Imaging.h"
 
 int
-ImagingPcxDecode(Imaging im, ImagingCodecState state, UINT8* buf, int bytes)
+ImagingPcxDecode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
 {
     UINT8 n;
     UINT8* ptr;

@@ -22,7 +22,7 @@
 #include "Zip.h"
 
 int
-ImagingZipEncode(Imaging im, ImagingCodecState state, UINT8* buf, int bytes)
+ImagingZipEncode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
 {
     ZIPSTATE* context = (ZIPSTATE*) state->context;
     int err;

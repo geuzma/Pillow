@@ -21,7 +21,7 @@
 #include "Imaging.h"
 
 int
-ImagingRawEncode(Imaging im, ImagingCodecState state, UINT8* buf, int bytes)
+ImagingRawEncode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
 {
     UINT8* ptr;
 
@@ -32,7 +32,7 @@ ImagingRawEncode(Imaging im, ImagingCodecState state, UINT8* buf, int bytes)
 	   packed size */
 
 	if (state->count > 0) {
-	    int bytes = state->count;
+	    size_t bytes = state->count;
 
 	    /* stride must not be less than real size */
 	    if (state->count < state->bytes) {

@@ -22,6 +22,7 @@
 
 /* FIXME: make these pluggable! */
 
+#define PY_SSIZE_T_CLEAN
 #include "Python.h"
 
 #include "Imaging.h"
@@ -39,7 +40,7 @@
 typedef struct {
     PyObject_HEAD
     int (*encode)(Imaging im, ImagingCodecState state,
-		  UINT8* buffer, int bytes);
+		  UINT8* buffer, size_t bytes);
     struct ImagingCodecStateInstance state;
     Imaging im;
     PyObject* lock;

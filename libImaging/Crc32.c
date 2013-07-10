@@ -74,7 +74,7 @@ static UINT32 crc32table[] = { 0x0, 0x77073096L, 0xEE0E612CL,
 
 
 UINT32
-ImagingCRC32(UINT32 crc, UINT8* buffer, int bytes)
+ImagingCRC32(UINT32 crc, UINT8* buffer, size_t bytes)
 {
     int i;
 
