@@ -900,7 +900,7 @@ static PyObject*
 _getpalette(ImagingObject* self, PyObject* args)
 {
     PyObject* palette;
-    int palettesize = 256;
+    Py_ssize_t palettesize = 256;
     int bits;
     ImagingShuffler pack;
 
@@ -1399,7 +1399,8 @@ _putpalette(ImagingObject* self, PyObject* args)
 
     char* rawmode;
     UINT8* palette;
-    int palettesize;
+    Py_ssize_t palettesize;
+
     if (!PyArg_ParseTuple(args, "s"PY_ARG_BYTES_LENGTH, &rawmode, &palette, &palettesize))
     return NULL;
 
