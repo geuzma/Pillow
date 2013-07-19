@@ -103,7 +103,7 @@ _encode(ImagingEncoderObject* encoder, PyObject* args)
 
     /* Encode to a Python string (allocated by this method) */
 
-    int bufsize = 16384;
+    Py_ssize_t bufsize = 16384;
 
     if (!PyArg_ParseTuple(args, "|i", &bufsize))
 	return NULL;
@@ -112,6 +112,9 @@ _encode(ImagingEncoderObject* encoder, PyObject* args)
     if (!buf)
 	return NULL;
 
+    printf("context: 0x%x\n", encoder->state.context);
+    //    JPEGENCODERSTATE* context = (JPEGENCODERSTATE*) encoder.state;
+    //printf("extra: %x", context->extra);
     status = encoder->encode(encoder->im, &encoder->state,
 			     (UINT8*) PyBytes_AsString(buf), bufsize);
 
@@ -136,7 +139,7 @@ _encode_to_file(ImagingEncoderObject* encoder, PyObject* args)
     /* Encode to a file handle */
 
     int fh;
-    int bufsize = 16384;
+    Py_ssize_t bufsize = 16384;
 
     if (!PyArg_ParseTuple(args, "i|i", &fh, &bufsize))
 	return NULL;

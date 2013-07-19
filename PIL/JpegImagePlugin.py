@@ -554,7 +554,7 @@ def _save(im, fp, filename):
         extra,
         info.get("exif", b"")
         )
-
+    print extra
 
     # if we optimize, libjpeg needs a buffer big enough to hold the whole image in a shot.
     # Guessing on the size, at im.size bytes. (raw pizel size is channels*size, this

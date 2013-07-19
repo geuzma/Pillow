@@ -87,6 +87,8 @@ ImagingJpegEncode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
     JPEGENCODERSTATE* context = (JPEGENCODERSTATE*) state->context;
     int ok;
 
+    printf("extra: %x", context->extra);
+
     if (setjmp(context->error.setjmp_buffer)) {
 	/* JPEG error handler */
 	jpeg_destroy_compress(&context->cinfo);
@@ -242,7 +244,6 @@ ImagingJpegEncode(Imaging im, ImagingCodecState state, UINT8* buf, size_t bytes)
 	state->state++;
 	/* fall through */
     case 3:
-
         if (context->extra) {
             /* copy extra buffer to output buffer */
             unsigned int n = context->extra_size - context->extra_offset;
